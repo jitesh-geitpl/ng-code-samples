@@ -1,0 +1,31 @@
+<div class="comment-container" *ngIf="comment">
+    <div class="comment">
+        <div class="comment-header">
+            <div class="comment-profile">
+                <img class="comment-profile-image" [src]="comment.profileImg">
+            </div>
+            <div class="comment-user">
+                <div class="comment-user-name">{{comment.username}}</div>
+            </div>
+        </div>
+        <div class="comment-content">
+            <div class="comment-content-text">{{comment.comment}}</div>
+        </div>
+        <div class="comment-footer">
+            <div class="comment-footer-item">
+                <span class="comment-footer-item-label">Likes</span>
+                <span class="comment-footer-item-value">{{comment.likes || '0'}}</span>
+            </div>
+            <div class="comment-footer-item">
+                <span class="comment-footer-item-label">{{comment.replies?.length ? 'Replies' : 'Reply'}}</span>
+                <span class="comment-footer-item-value" *ngIf="comment.replies">{{comment.replies.length}}</span>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="comment.replies">
+        <div class="comment-replies">
+            <app-comment *ngFor="let replyComment of comment.replies" [comment]="replyComment"></app-comment>
+        </div>
+    </ng-container>
+</div>

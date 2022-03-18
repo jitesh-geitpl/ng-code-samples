@@ -1,0 +1,101 @@
+.feed-post-container {
+    background: white;
+    box-shadow: 0px 0px 20px -12px black;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 16px;
+
+    .feed-post {
+        .feed-post-header {
+            display: flex;
+            margin: 12px 0;
+            align-items: center;
+
+            .feed-profile-image-holder {
+                width: 40px;
+                height: 40px;
+                overflow: hidden;
+                border-radius: 20px;
+                margin: 0 16px 0 16px;
+
+                .feed-profile-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .feed-user {
+                .feed-user-name {
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: #222222;
+                }
+
+                .feed-user-location {
+                    font-size: 14px;
+                    font-weight: normal;
+                    color: #626262;
+                }
+            }
+        }
+
+        .feed-content {
+            border-top: 1px solid lightgray;
+            border-bottom: 1px solid lightgray;
+
+            .feed-content-text {
+                margin: 12px 16px;
+                font-size: 16px;
+                color: #222222;
+            }
+
+            .feed-content-image-container {
+                width: 100%;
+                height: 340px;
+
+                .feed-content-image {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .feed-footer {
+            display: flex;
+            margin: 12px 16px;
+
+            .feed-footer-item {
+                &:not(:first-child) {
+                    margin-left: 16px;
+                }
+
+                .feed-footer-item-label {
+                    color: #222222;
+                    font-size: 14px;
+                }
+
+                .feed-footer-item-value {
+                    margin-left: 6px;
+                    color: #626262;
+                    font-size: 16px;
+
+                    &::before {
+                        content: "";
+                        width: 4px;
+                        height: 4px;
+                        background: #a0a0a0;
+                        display: inline-block;
+                        margin: 3px 4px 3px 0;
+                        border-radius: 2px;
+                    }
+                }
+            }
+        }
+    }
+
+    .feed-comments {
+        margin: 0 16px 22px 16px;
+    }
+}

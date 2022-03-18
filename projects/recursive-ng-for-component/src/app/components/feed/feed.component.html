@@ -1,0 +1,35 @@
+<div class="feed-post-container" *ngFor="let feed of feeds">
+    <div class="feed-post">
+        <div class="feed-post-header">
+            <div class="feed-profile-image-holder">
+                <img class="feed-profile-image" [src]="feed.profileImg">
+            </div>
+            <div class="feed-user">
+                <div class="feed-user-name">{{feed.username}}</div>
+                <div class="feed-user-location">{{feed.location}}</div>
+            </div>
+        </div>
+        <div class="feed-content">
+            <div class="feed-content-text">{{feed.textContent}}</div>
+            <div class="feed-content-image-container" *ngIf="feed.images">
+                <img class="feed-content-image" [src]="feed.images[0]">
+            </div>
+        </div>
+        <div class="feed-footer">
+            <div class="feed-footer-item">
+                <span class="feed-footer-item-label">Likes</span>
+                <span class="feed-footer-item-value">{{feed.likes || '0'}}</span>
+            </div>
+            <div class="feed-footer-item">
+                <span class="feed-footer-item-label">Comments</span>
+                <span class="feed-footer-item-value" *ngIf="feed.comments">{{feed.comments.length}}</span>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="feed.comments">
+        <div class="feed-comments">
+            <app-comment *ngFor="let replyComment of feed.comments" [comment]="replyComment"></app-comment>
+        </div>
+    </ng-container>
+</div>
