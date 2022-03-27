@@ -1,0 +1,32 @@
+<div class="list-header">
+    <h3>Reusable ng-content</h3>
+
+    <button
+        (click)="addNewItem()"
+        title="Add Item"
+        type="button"
+        class="btn-add"
+    >
+        Add New
+    </button>
+</div>
+<br />
+
+<ul>
+    <ng-container *ngFor="let item of items; let indexItem = index">
+        <li>
+            <ng-content
+                *ngTemplateOutlet="customTemplateRef; context: { item: item }"
+            ></ng-content>
+
+            <button
+                (click)="removeItem(indexItem)"
+                title="Remove"
+                type="button"
+                class="btn-remove"
+            >
+                X
+            </button>
+        </li>
+    </ng-container>
+</ul>

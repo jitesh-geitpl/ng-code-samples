@@ -1,0 +1,9 @@
+<app-item [items]="items" (onRemoveItem)="onRemoveItem($event)">
+    <ng-template let-item="item">
+        <div class="card">
+            <h4>{{ item.title }}</h4>
+            <small>{{ item.date }}</small>
+            <p>{{ item.desc }}</p>
+        </div>
+    </ng-template>
+</app-item>
