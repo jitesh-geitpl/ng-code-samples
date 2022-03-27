@@ -13,29 +13,16 @@ import {
     styleUrls: ['./item.component.scss'],
 })
 export class ItemComponent {
-    private item = {
-        title: 'Header Item',
-        date: '22/03/2022',
-        desc: 'Lorem ipsum dolor amet.',
-    };
-
     @Input() items: any[] = [];
     @Output() onRemoveItem: EventEmitter<any> = new EventEmitter();
-
+    @Output() onAddItem: EventEmitter<any> = new EventEmitter();
     @ContentChild(TemplateRef) customTemplateRef!: TemplateRef<any>;
 
-    constructor() {}
-
-    addNewItem() {
-        this.items.push(this.item);
+    addNewItem(event: any) {
+        this.onAddItem.emit(event);
     }
 
     removeItem(indexItem: number) {
-        try {
-            this.onRemoveItem.emit(this.items.splice(indexItem, 1)[0]);
-        } catch (e) {
-            this.onRemoveItem.emit(e);
-            console.log(e);
-        }
+        this.onRemoveItem.emit(indexItem);
     }
 }

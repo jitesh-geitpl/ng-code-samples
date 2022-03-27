@@ -20,5 +20,11 @@ export class AppComponent {
 
     onRemoveItem(event: any) {
         console.log(event);
+        this.items.splice(event, 1);
+    }
+
+    onAddItem(event: any) {
+        console.log(event);
+        this.items.push(this.item);
     }
 }

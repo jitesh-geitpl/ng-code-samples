@@ -1,4 +1,4 @@
-<app-item [items]="items" (onRemoveItem)="onRemoveItem($event)">
+<app-item [items]="items" (onRemoveItem)="onRemoveItem($event)" (onAddItem)="onAddItem($event)">
     <ng-template let-item="item">
         <div class="card">
             <h4>{{ item.title }}</h4>
